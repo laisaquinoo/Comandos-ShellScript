@@ -1,0 +1,8 @@
+#!/bin/bash
+V1=$1
+V2=$2
+
+if [ -z $V2 ]
+ then
+     echo "O DIRETÓRIO ATUAL É: $(pwd)"
+fi
