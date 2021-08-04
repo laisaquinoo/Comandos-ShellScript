@@ -1,0 +1,10 @@
+#!/bin/bash
+VALOR1=$1
+VALOR2=$2
+
+if [ $VALOR1 = $VALOR2 ]
+ then
+    echo "Os valores são iguais"
+ else
+    echo "Os valores não são iguais"
+fi
