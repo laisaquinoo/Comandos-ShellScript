@@ -1,0 +1,8 @@
+#!/bin/bash
+V1=$1
+
+if [ $V1 = "UNIP" ]
+ then
+    mkdir UNIP
+    echo "criou uma nova pasta chamada UNIP!"
+fi
