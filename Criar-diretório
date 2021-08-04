@@ -1,0 +1,13 @@
+#!/bin/bash
+ARQUIVOS=$(ls)
+PARAMETRO=$1
+
+for ITEM in $ARQUIVOS
+  do
+    if [ -d $ITEM ] && [ $PARAMETRO == $ITEM ]
+    then
+       mkdir Diretório1
+       mkdir Diretório2
+       echo "Foi criado dois novos diretórios!"
+    fi
+  done
