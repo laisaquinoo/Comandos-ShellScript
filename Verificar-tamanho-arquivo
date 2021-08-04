@@ -1,0 +1,16 @@
+#!/bin/bash
+ARQUIVO1=$1;
+ARQUIVO2=$2;
+
+if [ -f $ARQUIVO1 ] && [ -f $ARQUIVO2 ];
+  then
+       echo "Os dois são arquivos."
+       if [ $(wc -c < $ARQUIVO1) -gt $(wc -c < $ARQUIVO2) ]
+          then
+              echo "O arquivo $ARQUIVO1 é maior."
+         else
+              echo "O arquivo $ARQUIVO2 é maior."
+       fi
+else
+    echo "Não foi possivel continuar! Verifique se são arquivos."
+fi
