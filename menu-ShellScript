@@ -1,0 +1,116 @@
+#!/bin/bash
+x="menu"
+menu ()
+{
+while true $x != "menu"
+do
+clear
+echo "__________________________________________________________"
+echo " =================        MENU       ====================="
+echo ""
+echo "1)Criar uma pasta          ||       5)Remover um arquivo"
+echo ""
+echo "2)Criar um arquivo         ||       6)Remover um diretório"
+echo ""
+echo "3)Verifica se é arquivo    ||       7)Desliga computador"
+echo ""
+echo "4)Mostrar data e hora      ||       8)Sair do programa"
+echo ""
+echo "__________________________________________________________"
+echo ""
+echo "Digite a opção desejada:"
+read x
+echo "Você escolheu a opção = ($x)"
+echo "__________________________________________________________"
+
+case "$x" in
+
+
+    1)
+      echo "Informe o nome da pasta a ser criada:"
+      read nome
+      mkdir $nome
+      echo "Pasta criada com sucesso!"
+      sleep 5
+
+echo "________________________________________________"
+;;
+    2)
+      echo "Informe o nome do arquivo a ser criado:"
+      read nome
+      touch $nome
+      nano $nome
+      echo "Arquivo criado com sucesso!"
+      sleep 5
+
+echo "________________________________________________"
+;;
+   3)
+      echo "Digite o nome do arquivo a ser verificado:"
+      read nome
+      if [ -f $nome ]
+        then
+        echo "$nome é um arquivo!"
+        else
+        echo "$nome não é um arquivo!"
+      fi
+      sleep 5
+
+echo "________________________________________________"
+;;
+    4)
+       echo "DATA ATUAL : $user $(date "+%d / %m / %Y")"
+       echo "HORA ATUAL : $user $(date "+%H : %M : %S")"
+       sleep 7
+
+echo "________________________________________________"
+;;
+     5)
+       echo "Qual arquivo deseja remover?"
+      read nome
+      if [ -f $nome ]
+        then
+            rm $nome
+            echo "O arquivo $nome foi removido!"
+       else
+            echo "Não foi possivel remover! $nome não é um arquivo!"
+      fi
+      sleep 5
+
+echo "________________________________________________"
+;;
+       6)
+       echo "Qual diretório deseja remover?"
+       read nome
+       if [ -d $nome ]
+         then
+            rm -r $nome
+            echo "O Diretório $nome foi removido!"
+         else
+            echo "Não foi possivel remover! $nome não é um diretório!"
+       fi
+      sleep 5
+
+echo "________________________________________________"
+;;
+       7)
+        sudo shutdown -h +5 "O sistema será encerrado em 5 minutos"
+        sleep 5
+
+echo "________________________________________________"
+ ;;
+       8)
+         echo "Encerrando o programa..."
+         sleep 5
+         clear;
+         exit;
+echo "________________________________________________"
+;;
+
+*)
+        echo "Está opção não é válida!"
+esac
+done
+
+}
+menu
